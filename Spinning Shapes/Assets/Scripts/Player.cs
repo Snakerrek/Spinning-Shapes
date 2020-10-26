@@ -10,6 +10,10 @@ public class Player : MonoBehaviour
         moveSpeed = FindObjectOfType<GameController>().GetPlayerMoveSpeed();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Player lost");
+    }
     void FixedUpdate()
     {
         if(Input.GetKey("a"))

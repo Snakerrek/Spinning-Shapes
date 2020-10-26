@@ -11,7 +11,7 @@ public class Shape : MonoBehaviour
         shrinkSpeed = FindObjectOfType<GameController>().GetShapeShrinkSpeed();
         rb = GetComponent<Rigidbody2D>();
         rb.rotation = Random.Range(0f, 360f);
-        transform.localScale = new Vector3(15f, 15f, 15f);
+        transform.localScale = new Vector3(8f, 8f, 8f);
     }
 
     void Update()
