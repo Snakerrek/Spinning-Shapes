@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 300f;
+    float moveSpeed;
+    private void Start()
+    {
+        moveSpeed = FindObjectOfType<GameController>().GetPlayerMoveSpeed();
+    }
 
     void FixedUpdate()
     {

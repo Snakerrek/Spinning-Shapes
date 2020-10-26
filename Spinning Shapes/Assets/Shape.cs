@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Shape : MonoBehaviour
 {
-    [SerializeField] float shrinkSpeed = 5.0f;
-
+    float shrinkSpeed;
     Rigidbody2D rb;
     void Start()
     {
+        shrinkSpeed = FindObjectOfType<GameController>().GetShapeShrinkSpeed();
         rb = GetComponent<Rigidbody2D>();
         rb.rotation = Random.Range(0f, 360f);
         transform.localScale = new Vector3(15f, 15f, 15f);
