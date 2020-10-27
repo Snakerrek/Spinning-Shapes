@@ -5,14 +5,16 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     float moveSpeed;
+    GameController gameController;
     private void Start()
     {
-        moveSpeed = FindObjectOfType<GameController>().GetPlayerMoveSpeed();
+        gameController = FindObjectOfType<GameController>();
+        moveSpeed = gameController.GetPlayerMoveSpeed();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Player lost");
+        gameController.Lose();
     }
     void FixedUpdate()
     {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -22,15 +23,22 @@ public class GameController : MonoBehaviour
 
     [Header("Score")]
     [SerializeField] int score = 0;
-    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI scoreText = null;
 
     private void Start()
     {
         InvokeRepeating("RandomSign", spinDirectionChangeTime, spinDirectionChangeTime);
+        Debug.Log(PlayerPrefs.GetInt("HighestScore", 0));
     }
     private void Update()
     {
         RotateCamera();
+    }
+
+    public void Lose()
+    {
+        ManageHighestScore();
+        SceneManager.LoadScene(0);
     }
 
     #region Score Methods
@@ -68,7 +76,6 @@ public class GameController : MonoBehaviour
     void RandomSign()
     {
         cameraRotationSign = (Random.Range(0, 2) - 0.5f) * 2;
-        Debug.Log(cameraRotationSign);
     }
     #endregion
 
