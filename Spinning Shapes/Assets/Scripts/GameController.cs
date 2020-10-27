@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class GameController : MonoBehaviour
     [SerializeField] float spinSpeed = 1.0f;
     float cameraRotationSign;
 
+    [Header("Score")]
+    [SerializeField] int score = 0;
+    [SerializeField] TextMeshProUGUI scoreText;
+
     private void Start()
     {
         InvokeRepeating("RandomSign", spinDirectionChangeTime, spinDirectionChangeTime);
@@ -27,6 +32,27 @@ public class GameController : MonoBehaviour
     {
         RotateCamera();
     }
+
+    #region Score Methods
+
+    public void AddScore(int amount)
+    {
+        score += amount;
+        UpdateScoreText(score);
+    }
+
+    public void ManageHighestScore()
+    {
+        if (PlayerPrefs.GetInt("HighestScore", 0) < score)
+            PlayerPrefs.SetInt("HighestScore", score);
+    }
+
+    void UpdateScoreText(int amount)
+    {
+        scoreText.text = amount.ToString();
+    }
+
+    #endregion
 
     #region Camera Methods
     public void ChangeCameraBackgroundColor()
@@ -51,6 +77,7 @@ public class GameController : MonoBehaviour
     public float GetShapeShrinkSpeed() { return shapeShrinkSpeed; }
     public float GetTimeBetweenShapeSpawns() { return timeBetweenShapeSpawns; }
     public GameObject[] GetShapePrefabs() { return shapePrefabs; }
+    public int GetScore() { return score; }
 
     #endregion
 }

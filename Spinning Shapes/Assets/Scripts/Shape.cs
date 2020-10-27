@@ -28,6 +28,7 @@ public class Shape : MonoBehaviour
 
         if (transform.localScale.x <= 0.1f)
         {
+            gameController.AddScore(1);
             gameController.ChangeCameraBackgroundColor();
             Destroy(gameObject);
         }
