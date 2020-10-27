@@ -4,29 +4,53 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [Header("Game Settings")]
+    [Header("Player Settings")]
     [SerializeField] float playerMoveSpeed = 500f;
+
+    [Header("Shapes Settings")]
     [SerializeField] float shapeShrinkSpeed = 3.0f;
     [SerializeField] float timeBetweenShapeSpawns = 2.0f;
     [SerializeField] GameObject[] shapePrefabs = null;
 
+    [Header("Camera Settings")]
+    [SerializeField] GameObject gameCamera = null;
+    [SerializeField] Gradient cameraColorGradient = null;
+    [SerializeField] float spinDirectionChangeTime = 2.0f;
+    [SerializeField] float spinSpeed = 1.0f;
+    float cameraRotationSign;
 
-    public float GetPlayerMoveSpeed()
+    private void Start()
     {
-        return playerMoveSpeed;
+        InvokeRepeating("RandomSign", spinDirectionChangeTime, spinDirectionChangeTime);
     }
-    public float GetShapeShrinkSpeed()
+    private void Update()
     {
-        return shapeShrinkSpeed;
-    }
-
-    public float GetTimeBetweenShapeSpawns()
-    {
-        return timeBetweenShapeSpawns;
+        RotateCamera();
     }
 
-    public GameObject[] GetShapePrefabs()
+    #region Camera Methods
+    public void ChangeCameraBackgroundColor()
     {
-        return shapePrefabs;
+        gameCamera.GetComponent<Camera>().backgroundColor = cameraColorGradient.Evaluate(Random.Range(0f, 1f));
     }
+
+    void RotateCamera()
+    {
+        gameCamera.transform.Rotate(0f, 0f, Time.deltaTime * spinSpeed * cameraRotationSign);
+    }
+
+    void RandomSign()
+    {
+        cameraRotationSign = (Random.Range(0, 2) - 0.5f) * 2;
+        Debug.Log(cameraRotationSign);
+    }
+    #endregion
+
+    #region Getters
+    public float GetPlayerMoveSpeed() { return playerMoveSpeed; }
+    public float GetShapeShrinkSpeed() { return shapeShrinkSpeed; }
+    public float GetTimeBetweenShapeSpawns() { return timeBetweenShapeSpawns; }
+    public GameObject[] GetShapePrefabs() { return shapePrefabs; }
+
+    #endregion
 }

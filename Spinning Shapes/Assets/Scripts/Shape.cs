@@ -6,9 +6,11 @@ public class Shape : MonoBehaviour
 {
     float shrinkSpeed;
     Rigidbody2D rb;
+    GameController gameController;
     void Start()
     {
-        shrinkSpeed = FindObjectOfType<GameController>().GetShapeShrinkSpeed();
+        gameController = FindObjectOfType<GameController>();
+        shrinkSpeed = gameController.GetShapeShrinkSpeed();
         rb = GetComponent<Rigidbody2D>();
         rb.rotation = Random.Range(0f, 360f);
         transform.localScale = new Vector3(8f, 8f, 8f);
@@ -25,7 +27,10 @@ public class Shape : MonoBehaviour
         transform.localScale -= scaleFactor;
 
         if (transform.localScale.x <= 0.1f)
+        {
+            gameController.ChangeCameraBackgroundColor();
             Destroy(gameObject);
+        }
     }
 
 
