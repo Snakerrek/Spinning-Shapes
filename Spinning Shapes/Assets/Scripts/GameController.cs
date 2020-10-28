@@ -28,7 +28,6 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         InvokeRepeating("RandomSign", spinDirectionChangeTime, spinDirectionChangeTime);
-        Debug.Log(PlayerPrefs.GetInt("HighestScore", 0));
     }
     private void Update()
     {
