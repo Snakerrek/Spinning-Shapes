@@ -626,6 +626,8 @@ MonoBehaviour:
   timeBetweenShapeSpawns: 2
   shapePrefabs:
   - {fileID: 8060294045460138811, guid: 3669935fcd3703548aaf8a2692d35e62, type: 3}
+  - {fileID: 5052703259526868535, guid: 393d61181428afb4b9364b0fad57ac5a, type: 3}
+  - {fileID: 1681116213100283767, guid: 501a1a56da18c024db0ab9cbff5e37a3, type: 3}
   gameCamera: {fileID: 519420028}
   cameraColorGradient:
     serializedVersion: 2
@@ -684,7 +686,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1198246933
 GameObject:
@@ -932,5 +934,5 @@ Transform:
   m_Children:
   - {fileID: 538770357}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

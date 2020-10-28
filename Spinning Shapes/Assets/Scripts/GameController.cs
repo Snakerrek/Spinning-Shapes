@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        ChangeCameraBackgroundColor();
         InvokeRepeating("RandomSign", spinDirectionChangeTime, spinDirectionChangeTime);
     }
     private void Update()
