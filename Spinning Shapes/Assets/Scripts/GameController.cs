@@ -24,6 +24,10 @@ public class GameController : MonoBehaviour
     [Header("Score")]
     [SerializeField] int score = 0;
     [SerializeField] TextMeshProUGUI scoreText = null;
+    [SerializeField] TextMeshProUGUI highestScore = null;
+
+    [Header("Other")]
+    [SerializeField] GameObject loseCanvas = null;
 
     private void Start()
     {
@@ -38,7 +42,9 @@ public class GameController : MonoBehaviour
     public void Lose()
     {
         ManageHighestScore();
-        SceneManager.LoadScene(0);
+        loseCanvas.SetActive(true);
+        highestScore.text = PlayerPrefs.GetInt("HighestScore", 0).ToString();
+        Time.timeScale = 0f;
     }
 
     #region Score Methods

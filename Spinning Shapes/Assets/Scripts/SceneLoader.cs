@@ -8,6 +8,7 @@ public class SceneLoader : MonoBehaviour
     int currentSceneIndex;
     void Start()
     {
+        Time.timeScale = 1.0f;
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
