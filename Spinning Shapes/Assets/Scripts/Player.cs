@@ -23,4 +23,9 @@ public class Player : MonoBehaviour
         if (Input.GetKey("d"))
             transform.RotateAround(Vector3.zero, Vector3.forward, -moveSpeed * Time.fixedDeltaTime);
     }
+
+    public void RotatePlayerBy(float factor)
+    {
+        transform.RotateAround(Vector3.zero, Vector3.forward, factor);
+    }
 }

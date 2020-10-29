@@ -70,7 +70,10 @@ public class GameController : MonoBehaviour
 
     void RotateCamera()
     {
-        gameCamera.transform.Rotate(0f, 0f, Time.deltaTime * spinSpeed * cameraRotationSign);
+        float rotationFactor = Time.deltaTime * spinSpeed * cameraRotationSign;
+
+        gameCamera.transform.Rotate(0f, 0f, rotationFactor);
+        FindObjectOfType<Player>().RotatePlayerBy(rotationFactor); // counter rotation for player while camera rotates
     }
 
     void RandomSign()
