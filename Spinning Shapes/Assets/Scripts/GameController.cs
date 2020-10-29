@@ -68,7 +68,7 @@ public class GameController : MonoBehaviour
         gameCamera.GetComponent<Camera>().backgroundColor = cameraColorGradient.Evaluate(Random.Range(0f, 1f));
     }
 
-    void RotateCamera()
+    private void RotateCamera()
     {
         float rotationFactor = Time.deltaTime * spinSpeed * cameraRotationSign;
 
@@ -76,7 +76,7 @@ public class GameController : MonoBehaviour
         FindObjectOfType<Player>().RotatePlayerBy(rotationFactor); // counter rotation for player while camera rotates
     }
 
-    void RandomSign()
+    private void RandomSign()
     {
         cameraRotationSign = (Random.Range(0, 2) - 0.5f) * 2;
     }
