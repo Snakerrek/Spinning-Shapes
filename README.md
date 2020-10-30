@@ -1,3 +1,3 @@
 # Spinning-Shapes
 
-Super Hexagon clone but for Android.
+Super Hexagon clone for Android.
