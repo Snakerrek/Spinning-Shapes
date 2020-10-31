@@ -1198,6 +1198,8 @@ MonoBehaviour:
   scoreText: {fileID: 85005084}
   highestScore: {fileID: 739959503}
   loseCanvas: {fileID: 1132424164}
+  loseSound: {fileID: 8300000, guid: 3a929da23fb96d44e87c12d59e0dfd4e, type: 3}
+  loseSoundVolume: 0.5
 --- !u!114 &766171453
 MonoBehaviour:
   m_ObjectHideFlags: 0

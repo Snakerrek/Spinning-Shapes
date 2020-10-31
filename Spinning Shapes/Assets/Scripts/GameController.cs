@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms;
 
 public class GameController : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class GameController : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] GameObject loseCanvas = null;
+    [SerializeField] AudioClip loseSound = null;
+    [SerializeField] [Range(0,1)] float loseSoundVolume = 0.5f;
 
     private void Start()
     {
@@ -42,6 +45,7 @@ public class GameController : MonoBehaviour
     public void Lose()
     {
         ManageHighestScore();
+        AudioSource.PlayClipAtPoint(loseSound, Camera.main.transform.position, loseSoundVolume);
         loseCanvas.SetActive(true);
         highestScore.text = PlayerPrefs.GetInt("HighestScore", 0).ToString();
         Time.timeScale = 0f;
