@@ -20,7 +20,6 @@ public class GameController : MonoBehaviour
     [SerializeField] Gradient cameraColorGradient = null;
     [SerializeField] float spinDirectionChangeTime = 2.0f;
     [SerializeField] float spinSpeed = 1.0f;
-    float cameraRotationSign;
 
     [Header("Score")]
     [SerializeField] int score = 0;
@@ -28,14 +27,20 @@ public class GameController : MonoBehaviour
     [SerializeField] TextMeshProUGUI highestScore = null;
 
     [Header("Other")]
+    [SerializeField] TextMeshProUGUI speedText = null;
     [SerializeField] GameObject loseCanvas = null;
     [SerializeField] AudioClip loseSound = null;
     [SerializeField] [Range(0,1)] float loseSoundVolume = 0.5f;
     [SerializeField] Animator beatAnim = null;
+    [SerializeField] float gameSpeed = 1.0f; // Debug purposes
+
+    float cameraRotationSign;
+    bool isDead = false;
 
     private void Start()
     {
         ChangeCameraBackgroundColor();
+        SetSpeedText(gameSpeed);
         InvokeRepeating("RandomSign", spinDirectionChangeTime, spinDirectionChangeTime);
     }
     private void Update()
@@ -45,11 +50,31 @@ public class GameController : MonoBehaviour
 
     public void Lose()
     {
+        isDead = true;
         ManageHighestScore();
         AudioSource.PlayClipAtPoint(loseSound, Camera.main.transform.position, loseSoundVolume);
         loseCanvas.SetActive(true);
         highestScore.text = PlayerPrefs.GetInt("HighestScore", 0).ToString();
         Time.timeScale = 0f;
+    }
+    public void SpeedUpTheGame(float amountToSpeed)
+    {
+        if (!isDead)
+        {
+            Time.timeScale += amountToSpeed;
+            gameSpeed = Time.timeScale;
+            SetSpeedText(gameSpeed);
+        }
+    }
+
+    private void SetSpeedText( float amount)
+    {
+        if (amount % 1 == 0)
+            speedText.text = "x" + amount.ToString() + ".00";
+        else
+        {
+            speedText.text = "x" + amount.ToString().Replace(",", ".");
+        }
     }
 
     #region Score Methods

@@ -31,6 +31,7 @@ public class Shape : MonoBehaviour
             gameController.AddScore(1);
             gameController.ChangeCameraBackgroundColor();
             gameController.GetBeatAnimator().SetTrigger("Active");
+            gameController.SpeedUpTheGame(0.01f);
             Destroy(gameObject);
         }
     }
