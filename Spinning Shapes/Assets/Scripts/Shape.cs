@@ -30,6 +30,7 @@ public class Shape : MonoBehaviour
         {
             gameController.AddScore(1);
             gameController.ChangeCameraBackgroundColor();
+            gameController.GetBeatAnimator().SetTrigger("Active");
             Destroy(gameObject);
         }
     }

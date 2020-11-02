@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject loseCanvas = null;
     [SerializeField] AudioClip loseSound = null;
     [SerializeField] [Range(0,1)] float loseSoundVolume = 0.5f;
+    [SerializeField] Animator beatAnim = null;
 
     private void Start()
     {
@@ -98,6 +99,7 @@ public class GameController : MonoBehaviour
     public float GetTimeBetweenShapeSpawns() { return timeBetweenShapeSpawns; }
     public GameObject[] GetShapePrefabs() { return shapePrefabs; }
     public int GetScore() { return score; }
+    public Animator GetBeatAnimator() { return beatAnim; }
 
     #endregion
 }
