@@ -69,6 +69,7 @@ public class GameController : MonoBehaviour
 
     private void SetSpeedText( float amount)
     {
+        amount = (float)System.Math.Round(amount, 2);
         if (amount % 1 == 0)
             speedText.text = "x" + amount.ToString() + ".00";
         else

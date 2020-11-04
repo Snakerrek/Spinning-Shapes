@@ -5,25 +5,35 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    int currentSceneIndex;
-    void Start()
-    {
-        Time.timeScale = 1.0f;
-        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-    }
+    [SerializeField] Animator transition = null;
 
     public void ReloadScene()
     {
-        SceneManager.LoadScene(currentSceneIndex);
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
     }
 
     public void LoadStartScene()
     {
-        SceneManager.LoadScene("Start Scene");
+        StartCoroutine(LoadLevel("Start Scene"));
     }
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("Game");
+        StartCoroutine(LoadLevel("Game"));
+    }
+
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        transition.SetTrigger("Start");
+        Time.timeScale = 1.0f;
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(levelIndex);
+    }
+    IEnumerator LoadLevel(string levelName)
+    {
+        transition.SetTrigger("Start");
+        Time.timeScale = 1.0f;
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(levelName);
     }
 }
