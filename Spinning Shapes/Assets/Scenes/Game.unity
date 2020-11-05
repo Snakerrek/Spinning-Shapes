@@ -257,7 +257,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f92f574b47e4173479543a22666a9917, type: 2}
   m_sharedMaterial: {fileID: -8238318621163630792, guid: f92f574b47e4173479543a22666a9917, type: 2}
@@ -1265,9 +1265,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c7e18874c6b2946a0562997296f3bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMoveSpeed: 300
-  shapeShrinkSpeed: 1.5
-  timeBetweenShapeSpawns: 1.5
+  playerMoveSpeed: 200
+  shapeShrinkSpeed: 1
+  timeBetweenShapeSpawns: 2
   shapePrefabs:
   - {fileID: 8060294045460138811, guid: 3669935fcd3703548aaf8a2692d35e62, type: 3}
   - {fileID: 5052703259526868535, guid: 393d61181428afb4b9364b0fad57ac5a, type: 3}
