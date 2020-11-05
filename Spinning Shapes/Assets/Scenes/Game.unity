@@ -232,10 +232,10 @@ RectTransform:
   m_Father: {fileID: 1198246937}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.0000076294, y: -103}
-  m_SizeDelta: {x: 299.20612, y: 186.03061}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.0000076294, y: 0}
+  m_SizeDelta: {x: 299.20612, y: 186.03064}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &85005084
 MonoBehaviour:
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f92f574b47e4173479543a22666a9917, type: 2}
   m_sharedMaterial: {fileID: -8238318621163630792, guid: f92f574b47e4173479543a22666a9917, type: 2}
@@ -284,8 +284,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 150
-  m_fontSizeBase: 150
+  m_fontSize: 90
+  m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -590,7 +590,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 67035cf46c33e8647b1b00fff0c239a0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 24609fa66988f04478d84ec7945eef86, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2023,7 +2023,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -202.7, y: 66.7}
+  m_AnchoredPosition: {x: -202.69995, y: 66.700195}
   m_SizeDelta: {x: 406.51837, y: 133.37442}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1474819567

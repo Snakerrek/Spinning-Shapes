@@ -1575,6 +1575,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shutter
       objectReference: {fileID: 0}
+    - target: {fileID: 4950024633149904341, guid: 3bf5c527cc2324140992f3b29320719c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bf5c527cc2324140992f3b29320719c, type: 3}
 --- !u!1 &5052703259562576761
