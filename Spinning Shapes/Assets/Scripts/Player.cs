@@ -18,6 +18,11 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if(Input.touchCount > 0)
+        {
+            Vector2 touchPos = Input.GetTouch(0).position;
+        }
+
         if(Input.GetKey("a"))
             transform.RotateAround(Vector3.zero, Vector3.forward, moveSpeed * Time.fixedDeltaTime);
         if (Input.GetKey("d"))
